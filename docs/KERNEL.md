@@ -18,6 +18,10 @@ platform.
 Consumption is one way. This repo does not import JSPT. JSPT does not import this repo.
 Observers run on the laptop after the record exists.
 
+SP1 does not run here. An observation digest is SHA-256 of the canonical
+record and may later appear in a GAT evidence_commitments list. It does
+not prove the sensor, the calibration, or the building.
+
 ## Components that must change independently
 
 | Component | What it describes | What should change independently |
@@ -60,7 +64,7 @@ A tank id or a display preference in the conversion is drift.
 - Filling a gap with the last value.
 - Treating MQTT ACK as admission of a physical observation.
 - Pulling Kalman / JSPT into this repo.
-- Monorepo with FSRT / GAT / JSPT.
+- Proving samples with SP1.
 - Claiming the dial-reader measures process pressure.
 
 ## Review question

@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from .digest import observation_digest
 from .observation import Observation
 from .transport import Delivery
 
@@ -13,6 +14,7 @@ def receive(path: str | Path, observation: Observation, delivery: Delivery | Non
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     record = observation.as_dict()
+    record["digest"] = observation_digest(observation)
     if delivery is not None:
         record["delivery"] = {
             "packet_id": delivery.packet_id,

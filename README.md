@@ -6,6 +6,11 @@ whole measurement chain serviceable and reconstructible.
 This repository is the first host increment of that contract. It is not a
 universal device platform and it is not a flashing image.
 
+The first assembly happens to be a bench displacement stand. The contract
+is for manufacturing, infrastructure, agri-food, and logistics instruments:
+one declared chain from raw counts to a qualified record. BIM is a consumer
+of those records, not the owner of the sample.
+
 ## First increment
 
 One declared assembly:
@@ -48,8 +53,9 @@ They test the record format. They are not field millimetres.
 
 ## Bind a record in the CSE harness
 
-This repo never proves. CSE never treats a millimetre as `YieldStrengthMPa`.
-After you have an `rci-evidence-commitment-v1` JSON object:
+This repo never proves. CSE never treats a millimetre as `YieldStrengthMPa`,
+a lot code, or a cold-store temperature. After you have an
+`rci-evidence-commitment-v1` JSON object:
 
 ```bash
 python -m gat.demo.experiment_harness \
@@ -58,8 +64,9 @@ python -m gat.demo.experiment_harness \
   -o out/harness-bundle.json
 ```
 
-The harness stores the digest. Quality flags stay on the observation.
-JSPT is not imported here. Firmware remains C (ESP-IDF) when it exists.
+The harness stores the digest on a project space. Quality flags stay on
+the observation. JSPT is not imported here. Firmware remains C (ESP-IDF)
+when it exists.
 
 ## What this release does not claim
 
@@ -67,7 +74,7 @@ JSPT is not imported here. Firmware remains C (ESP-IDF) when it exists.
 - That a camera reading of a dial is process pressure.
 - That the conversion is traceable.
 - That firmware on the S3 is implemented. See `firmware/CONTRACT.md`.
-- That a bound digest is a beam observation.
+- That a bound digest is a beam observation or a food-safety record.
 
 Language ownership is in `docs/KERNEL.md`. Python owns this contract.
 C owns the future acquisition runtime. Julia does not sit above either.
@@ -78,5 +85,6 @@ JSPT owns A2-A5 and is not imported here.
 Notation Systems. Companion mathematical tools stay in their own repos
 and consume records from this contract; they do not own the sample.
 
+- [CSE domain map](https://github.com/giasonpooni/Construction-State-Estimator-for-BIM/blob/main/docs/domain-v1.md)
 - [CSE experiment harness](https://github.com/giasonpooni/Construction-State-Estimator-for-BIM/blob/main/docs/experiment-harness-v1.md)
 - [JSPT](https://github.com/giasonpooni/Jacobian-Sensitivity-Propagation-Testbed) owns the chart law, not the bench.

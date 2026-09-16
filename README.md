@@ -42,12 +42,32 @@ PYTHONPATH=src python -m pytest
 PYTHONPATH=src python examples/displacement_bench.py
 ```
 
+Pinned host-stand-in digests live in
+[`validation/rci-displacement-digests-v1.json`](validation/rci-displacement-digests-v1.json).
+They test the record format. They are not field millimetres.
+
+## Bind a record in the CSE harness
+
+This repo never proves. CSE never treats a millimetre as `YieldStrengthMPa`.
+After you have an `rci-evidence-commitment-v1` JSON object:
+
+```bash
+python -m gat.demo.experiment_harness \
+  --disposition validation/beam-b1-disposition-v1.json \
+  --commit path/to/rci-evidence-commitment.json \
+  -o out/harness-bundle.json
+```
+
+The harness stores the digest. Quality flags stay on the observation.
+JSPT is not imported here. Firmware remains C (ESP-IDF) when it exists.
+
 ## What this release does not claim
 
 - That the simulated counts are an LVDT or load cell.
 - That a camera reading of a dial is process pressure.
 - That the conversion is traceable.
 - That firmware on the S3 is implemented. See `firmware/CONTRACT.md`.
+- That a bound digest is a beam observation.
 
 Language ownership is in `docs/KERNEL.md`. Python owns this contract.
 C owns the future acquisition runtime. Julia does not sit above either.
@@ -57,3 +77,6 @@ JSPT owns A2-A5 and is not imported here.
 
 Notation Systems. Companion mathematical tools stay in their own repos
 and consume records from this contract; they do not own the sample.
+
+- [CSE experiment harness](https://github.com/giasonpooni/Construction-State-Estimator-for-BIM/blob/main/docs/experiment-harness-v1.md)
+- [JSPT](https://github.com/giasonpooni/Jacobian-Sensitivity-Propagation-Testbed) owns the chart law, not the bench.

@@ -5,7 +5,7 @@ description = "Measurement-chain contract for retrofitted instruments."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = ["numpy>=2.0"]
 
 [dependency-groups]
 dev = ["pytest>=8"]
